@@ -1,12 +1,13 @@
-import { shallowMount } from '@vue/test-utils'
-import HelloWorld from '@/components/HelloWorld.vue'
+import {mount} from '@vue/test-utils'
 
-describe('HelloWorld.vue', () => {
-  it('renders props.msg when passed', () => {
-    const msg = 'new message'
-    const wrapper = shallowMount(HelloWorld, {
-      propsData: { msg }
+import Home from "@/views/Home";
+
+describe('Home.vue', () => {
+    it('test', () => {
+        const items = [{expanseName: "Продукты", expenseValue: 100},
+            {expanseName: "Одежда", expenseValue: 500}];
+        const wrapper = mount(Home);
+
+        expect(wrapper.vm.getTotalValue(items)).toBe(600)
     })
-    expect(wrapper.text()).toMatch(msg)
-  })
 })
