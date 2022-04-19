@@ -15,7 +15,7 @@
         <span>Добавить категорию</span>
       </div>
       <div class="expense-form__buttons">
-        <v-btn class="expense-form__calculate-button" @click="clearExpenses">Сбросить</v-btn>
+        <v-btn @click="clearExpenses">Сбросить</v-btn>
         <v-btn class="expense-form__calculate-button" @click="calculateExpenses">Рассчитать</v-btn>
       </div>
     </v-form>
