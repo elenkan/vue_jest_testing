@@ -15,7 +15,7 @@
         <span>Добавить категорию</span>
       </div>
       <div class="expense-form__buttons">
-        <v-btn @click="clearExpenses">Сбросить</v-btn>
+        <v-btn class="expense-form__calculate-button" @click="clearExpenses">Сбросить</v-btn>
         <v-btn class="expense-form__calculate-button" @click="calculateExpenses">Рассчитать</v-btn>
       </div>
     </v-form>
@@ -50,15 +50,12 @@ export default {
       this.expensesList.push({expenseName: "", expenseValue: "", id: `${Math.random() * 2 * Math.random()}`});
     },
     calculateExpenses() {
-      this.result = this.getTotalValue(this.expensesList);
+      this.result = this.expensesList.reduce((acc, curr) => acc + Number(curr.expenseValue), 0);
       this.statisticList = this.expensesList.map(item => {
         const newItem = Object.assign({}, item);
-        newItem.expensePersent = Math.round((newItem.expenseValue / this.result) * 100);
+        newItem.expensePercent = Math.round((newItem.expenseValue / this.result) * 100);
         return newItem
       })
-    },
-    getTotalValue(array) {
-      return array.reduce((acc, curr) => acc + Number(curr.expenseValue), 0);
     },
     clearExpenses() {
       this.$refs.form.reset();
