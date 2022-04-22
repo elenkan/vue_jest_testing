@@ -15,7 +15,7 @@
         <span>Добавить категорию</span>
       </div>
       <div class="expense-form__buttons">
-        <v-btn class="expense-form__calculate-button" @click="clearExpenses">Сбросить</v-btn>
+        <v-btn class="expense-form__clear-button" @click="clearExpenses">Сбросить</v-btn>
         <v-btn class="expense-form__calculate-button" @click="calculateExpenses">Рассчитать</v-btn>
       </div>
     </v-form>
@@ -23,7 +23,7 @@
       <span>Всего расходов: {{ result }}</span>
       <ul>
         <li v-for="item in statisticList" :key="item.id">
-          <span>{{ item.expenseName }}: {{ item.expensePersent }}%</span>
+          <span>{{ item.expenseName }}: {{ item.expensePercent }}%</span>
         </li>
       </ul>
     </div>

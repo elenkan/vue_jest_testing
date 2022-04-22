@@ -20,7 +20,7 @@ describe('Home.vue', () => {
         });
 
         wrapper.setData({expensesList: items});
-        wrapper.find('.expense-form__calculate-button').trigger('click', { button: 0 });
+        wrapper.find('.expense-form__calculate-button').trigger('click');
 
         expect(wrapper.vm.result).toBe(600);
         expect(wrapper.vm.statisticList).toEqual([
